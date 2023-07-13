@@ -3,7 +3,7 @@ import terragen_rpc as tg
 
 # Window
 gui = Tk()
-gui.title("TG_Transform_To_Origin")
+gui.title("tg_transform_to_origin")
 gui.geometry("800x300")
 
 gui.columnconfigure(0,weight=1)
@@ -11,9 +11,9 @@ gui.rowconfigure(0,weight=1)
 gui.rowconfigure(1,weight=1)
 
 # Frames
-frame1 = LabelFrame(gui,text="Instructions",bg="#ECF4FF")
-frame1.grid(row=0,column=0,padx=5,pady=5,sticky='wens')
-frame2 = LabelFrame(gui,relief=FLAT,bg="#FFF9EC")
+frame1 = LabelFrame(gui,text="Instructions",relief=FLAT,bg="#A6CAE4")
+frame1.grid(row=0,column=0,sticky='wens')
+frame2 = LabelFrame(gui,relief=FLAT,bg="#B2B4B8")
 frame2.grid(row=1,column=0,sticky='wens')
 
 def main():
@@ -21,7 +21,7 @@ def main():
     if len(selected_nodes)>0:
         raw_clipboard_contents = get_clipboard_contents()
         if len(raw_clipboard_contents) > 0:
-            verified_contents = verify_clipboard_contents(raw_clipboard_contents) #clipboard_data = get_clipboard_coordinates()   # returns xyz values as a list             
+            verified_contents = verify_clipboard_contents(raw_clipboard_contents) # returns xyz values as a list             
             if len(verified_contents) > 0:
                 offset_coordinates = []
                 invert_x = str(float(verified_contents[0])* -1)
@@ -102,15 +102,15 @@ rpc_error = BooleanVar(gui,False)
 message = StringVar()
 
 # Transform input with offset coordinates
-label1 = Label(frame1,text="1. In the 3D Preview, right-click above a location and select Copy Coordinates.",bg="#ECF4FF").grid(row=0,column=0,sticky='w')
-label2 = Label(frame1, text="2. In the Node Network, select a node to be used as the Main input for a new Transform Input shader.",bg="#ECF4FF").grid(row=1,column=0,sticky='w')
-label3 = Label(frame1, text="3. Click the Apply Offset button below.",bg="#ECF4FF").grid(row=2,column=0,sticky='w')
-button11 = Button(frame1,text="Apply Offset",bg='pink',command=main).grid(row=3,column=0,padx=15,pady=5,sticky='w')
-label4 = Label(frame1, text="4. In the Node Network, connect the output of the Transform Input shader to the Main input of a downstream node like the Compute Terrain.",bg="#ECF4FF").grid(row=4,column=0,sticky='w')
+label1 = Label(frame1,text="1. In the 3D Preview, right-click above a location and select Copy Coordinates.",bg="#A6CAE4",padx=5).grid(row=0,column=0,sticky='w')
+label2 = Label(frame1, text="2. In the Node Network, select a node to be used as the Main input for a new Transform Input shader.",bg="#A6CAE4",padx=5).grid(row=1,column=0,sticky='w')
+label3 = Label(frame1, text="3. Click the Apply Offset button below.",bg="#A6CAE4",padx=5).grid(row=2,column=0,sticky='w')
+button11 = Button(frame1,text="Apply Offset",bg='#D3C19E',command=main,padx=5).grid(row=3,column=0,padx=20,pady=5,sticky='w')
+label4 = Label(frame1, text="4. In the Node Network, connect the output of the Transform Input shader to the Main input of a downstream node like the Compute Terrain.",bg="#A6CAE4",padx=5).grid(row=4,column=0,sticky='w')
 
 # Message section
-label5 = Label(frame2,text="Messages: ",bg="#FFF9EC").grid(row=0,column=0,sticky='w')
-Label6 = Label(frame2,textvariable=message,bg="#FFF9EC").grid(row=1,column=0)
-Label7 = Label(frame2,text=" ",bg="#FFF9EC").grid(row=2,column=0) # blank line at end
+label5 = Label(frame2,text="Messages: ",bg="#B2B4B8").grid(row=0,column=0,padx=5,sticky='w')
+Label6 = Label(frame2,textvariable=message,bg="#B2B4B8").grid(row=1,column=0,padx=5)
+Label7 = Label(frame2,text=" ",bg="#B2B4B8").grid(row=2,column=0) # blank line at end
 
 gui.mainloop()
