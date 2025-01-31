@@ -1,4 +1,9 @@
 # tg_transform_to_orgin
+&#9888; This Python script is now part of the <b>redmaw-tg-toolkit</b> repository, and will no longer be developed as a stand-alone script in this repository.
+
+Click [here](https://github.com/RedMawVFX/redmaw-tg-toolkit) for the redmaw-tg-toolkit repository.<br> 
+Click [here](https://github.com/RedMawVFX/redmaw-tg-toolkit/tree/main/scripts/tg-transform-to-origin) to go directly to the <i>tg-transform-to-origin</i> folder in the redmaw-tg-toolkit.
+<hr>
 
 ## A fully functional EXAMPLE script written in Python showing how to reposition a terrain feature at the origin of the project in Terragen 4 Professional.
 
